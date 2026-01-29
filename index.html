@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Sản Phẩm</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+    <div class="container-fluid py-4">
+        <!-- Header -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <h1 class="text-center mb-4">
+                    <i class="fas fa-box"></i> Quản Lý Sản Phẩm
+                </h1>
+            </div>
+        </div>
+
+        <!-- Search and Filter Section -->
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <span class="input-group-text bg-primary text-white">
+                        <i class="fas fa-search"></i>
+                    </span>
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        id="searchInput" 
+                        placeholder="Tìm kiếm theo tên sản phẩm..."
+                    >
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="btn-group w-100" role="group">
+                    <button 
+                        type="button" 
+                        class="btn btn-outline-primary" 
+                        id="sortNameAsc"
+                        title="Sắp xếp tên A-Z"
+                    >
+                        <i class="fas fa-arrow-up-a-z"></i> Tên A-Z
+                    </button>
+                    <button 
+                        type="button" 
+                        class="btn btn-outline-primary" 
+                        id="sortNameDesc"
+                        title="Sắp xếp tên Z-A"
+                    >
+                        <i class="fas fa-arrow-down-z-a"></i> Tên Z-A
+                    </button>
+                    <button 
+                        type="button" 
+                        class="btn btn-outline-success" 
+                        id="sortPriceAsc"
+                        title="Sắp xếp giá tăng"
+                    >
+                        <i class="fas fa-arrow-up"></i> Giá Tăng
+                    </button>
+                    <button 
+                        type="button" 
+                        class="btn btn-outline-danger" 
+                        id="sortPriceDesc"
+                        title="Sắp xếp giá giảm"
+                    >
+                        <i class="fas fa-arrow-down"></i> Giá Giảm
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Count -->
+        <div class="row mb-3">
+            <div class="col-12">
+                <small class="text-muted">
+                    Hiển thị <strong id="resultCount">0</strong> sản phẩm
+                </small>
+            </div>
+        </div>
+
+        <!-- Products Table -->
+        <div class="row">
+            <div class="col-12">
+                <div class="table-responsive">
+                    <table class="table table-hover table-striped align-middle">
+                        <thead class="table-primary">
+                            <tr>
+                                <th width="5%">#ID</th>
+                                <th width="25%">Tên Sản Phẩm</th>
+                                <th width="15%">Danh Mục</th>
+                                <th width="30%">Mô Tả</th>
+                                <th width="10%">Giá (₫)</th>
+                                <th width="15%">Hình Ảnh</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productTableBody">
+                            <tr>
+                                <td colspan="6" class="text-center py-5">
+                                    <div class="spinner-border text-primary" role="status">
+                                        <span class="visually-hidden">Đang tải...</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- No Results Message -->
+        <div class="row" id="noResults" style="display: none;">
+            <div class="col-12">
+                <div class="alert alert-info text-center" role="alert">
+                    <i class="fas fa-info-circle"></i> Không tìm thấy sản phẩm nào
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- App Script -->
+    <script src="./src/app.js"></script>
+</body>
+</html>
